@@ -2,12 +2,11 @@ package com.sortIntegers;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 
 
@@ -15,13 +14,14 @@ public class SortIntegersShould {
     @Test
     public void sort_an_integers_list(){
         assertThat(sortIntegers(intList()), is(intList()));
+        assertThat(sortIntegers(intList(1)), is(intList(1)));
     }
 
-    private List<Object> intList() {
-        return Arrays.asList();
+    private List<Integer> intList(Integer ...ints) {
+        return Arrays.asList(ints);
     }
 
-    private List<Integer> sortIntegers(List<Object> asList) {
-        return new ArrayList<>();
+    private List<Integer> sortIntegers(List<Integer> asList) {
+        return asList;
     }
 }
