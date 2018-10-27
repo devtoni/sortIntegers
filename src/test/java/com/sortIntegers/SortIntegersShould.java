@@ -2,6 +2,7 @@ package com.sortIntegers;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +22,6 @@ public class SortIntegersShould {
     }
 
     private List<Integer> sortIntegers(List<Object> asList) {
-        return null;
+        return new ArrayList<>();
     }
 }
