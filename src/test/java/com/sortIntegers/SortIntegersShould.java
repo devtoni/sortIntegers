@@ -1,6 +1,9 @@
 package com.sortIntegers;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,16 +12,20 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 
-
+@RunWith(JUnitParamsRunner.class)
 public class SortIntegersShould {
+
     @Test
-    public void sort_an_integers_list(){
-        assertThat(sortIntegers(intList()), is(intList()));
-        assertThat(sortIntegers(intList(1)), is(intList(1)));
+    @Parameters(method = "addParameters")
+    public void sort_an_integers_list(List<Integer> unsorted,List<Integer> sorted){
+        assertThat(sortIntegers(unsorted), is(sorted));
     }
 
-    private List<Integer> intList(Integer ...ints) {
-        return Arrays.asList(ints);
+    private Object[] addParameters() {
+        return new Object[]{
+                new Object[]{Arrays.asList(), Arrays.asList()},
+                new Object[]{Arrays.asList(1), Arrays.asList(1)}
+        };
     }
 
     private List<Integer> sortIntegers(List<Integer> asList) {
