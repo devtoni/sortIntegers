@@ -25,7 +25,8 @@ public class SortIntegersShould {
         return new Object[]{
                 new Object[]{Arrays.asList(), Arrays.asList()},
                 new Object[]{Arrays.asList(1), Arrays.asList(1)},
-                new Object[]{Arrays.asList(2,1), Arrays.asList(1, 2)}
+                new Object[]{Arrays.asList(2,1), Arrays.asList(1, 2)},
+                new Object[]{Arrays.asList(3,1,2), Arrays.asList(1, 2, 3)}
         };
     }
 
@@ -35,6 +36,13 @@ public class SortIntegersShould {
             if (temp > asList.get(1)) {
                 asList.set(0, asList.get(1));
                 asList.set(1, temp);
+            }
+        }
+        if (asList.size() > 2) {
+            Integer temp = asList.get(1);
+            if (temp > asList.get(2)) {
+                asList.set(1, asList.get(2));
+                asList.set(2, temp);
             }
         }
         return asList;
