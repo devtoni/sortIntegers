@@ -26,14 +26,17 @@ public class SortIntegersShould {
                 new Object[]{Arrays.asList(), Arrays.asList()},
                 new Object[]{Arrays.asList(1), Arrays.asList(1)},
                 new Object[]{Arrays.asList(2, 1), Arrays.asList(1, 2)},
-                new Object[]{Arrays.asList(3, 1, 2), Arrays.asList(1, 2, 3)}
+                new Object[]{Arrays.asList(3, 1, 2), Arrays.asList(1, 2, 3)},
+                new Object[]{Arrays.asList(3, 2, 1), Arrays.asList(1, 2, 3)}
         };
     }
 
     private List<Integer> sortIntegers(List<Integer> asList) {
-        for (int index = 0; asList.size() > index + 1; index++) {
-            if (outOfOrder(asList, index))
-                swap(asList, index);
+        for (int size = asList.size(); size > 0; size--) {
+            for (int index = 0; asList.size() > index + 1; index++) {
+                if (outOfOrder(asList, index))
+                    swap(asList, index);
+            }
         }
         return asList;
     }
